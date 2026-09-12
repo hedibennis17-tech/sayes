@@ -4,49 +4,112 @@
 
 :root {
   /* SaYes brand palette */
-  --sy-bg: #0d0f14;
-  --sy-surface: #141720;
-  --sy-surface-2: #1c2030;
-  --sy-border: #242840;
-  --sy-primary: #5b7fff;
-  --sy-primary-hover: #4060e0;
-  --sy-accent: #ff5f7e;
-  --sy-green: #2bde98;
-  --sy-yellow: #ffcc00;
-  --sy-orange: #ff8c42;
-  --sy-text: #e8eaf0;
-  --sy-text-muted: #7b82a0;
-  --sy-radius: 14px;
+  --sy-bg:           #0d0f14;
+  --sy-surface:      #141720;
+  --sy-surface-2:    #1c2030;
+  --sy-border:       #242840;
+  --sy-primary:      #5b7fff;
+  --sy-primary-hover:#4060e0;
+  --sy-accent:       #ff5f7e;
+  --sy-green:        #2bde98;
+  --sy-yellow:       #ffcc00;
+  --sy-orange:       #ff8c42;
+  --sy-purple:       #b47fff;
+  --sy-text:         #e8eaf0;
+  --sy-text-muted:   #7b82a0;
+  --sy-radius:       14px;
 }
+
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   background-color: var(--sy-bg);
   color: var(--sy-text);
+  min-height: 100vh;
 }
 
+/* Cards */
 .sy-card {
   background: var(--sy-surface);
   border: 1px solid var(--sy-border);
   border-radius: var(--sy-radius);
+  transition: border-color 0.15s, transform 0.15s;
+}
+.sy-card:hover {
+  border-color: #3a4060;
 }
 
+/* Buttons */
 .sy-btn-primary {
   background: var(--sy-primary);
   color: #fff;
   border-radius: 10px;
   padding: 0.6rem 1.4rem;
   font-weight: 600;
-  transition: background 0.15s;
+  transition: background 0.15s, transform 0.1s;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-.sy-btn-primary:hover {
-  background: var(--sy-primary-hover);
-}
+.sy-btn-primary:hover  { background: var(--sy-primary-hover); }
+.sy-btn-primary:active { transform: scale(0.97); }
 
+.sy-btn-ghost {
+  background: transparent;
+  color: var(--sy-text-muted);
+  border-radius: 10px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 500;
+  border: 1px solid var(--sy-border);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.sy-btn-ghost:hover { border-color: var(--sy-primary); color: var(--sy-text); }
+
+/* Badges */
 .sy-badge {
   background: var(--sy-surface-2);
   border: 1px solid var(--sy-border);
   border-radius: 999px;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.72rem;
   font-weight: 500;
+  color: var(--sy-text-muted);
+  white-space: nowrap;
+}
+
+/* Input */
+.sy-input {
+  background: var(--sy-surface-2);
+  border: 1px solid var(--sy-border);
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  color: var(--sy-text);
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.sy-input:focus  { border-color: var(--sy-primary); }
+.sy-input::placeholder { color: var(--sy-text-muted); }
+
+/* Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Section header */
+.sy-section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--sy-text);
+  margin-bottom: 1.5rem;
+}
+
+/* Page container */
+.sy-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
